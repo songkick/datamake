@@ -23,6 +23,17 @@ Command line parameters can be eval'd to multiple values and will run the whole 
 The downstream jobs are the ones scheduled by cron / citrine / something else and pull on the tasks upstream and run them as necessary.
 So they pull rather than push.
 
+Install
+-------
+
+    python setup.py install
+
+Run an example
+--------------
+Run with
+
+    datamake main examples/date.json --eval-param date='days_range(-2,0)'
+
 Flow file format
 ------------------
 
@@ -76,23 +87,14 @@ Example 2:
       ]
     }
 
-run with
+run with:
 
-    datamake examples.download examples/date.json --eval-param date='days_range(-2,0)'
-
+    datamake main examples/date.json --eval-param date='days_range(-2,0)'
 
 Help
 ----
 
     datamake --help
-
-Install
--------
-
-(Not in pypi)
-
-    pip install git+http://github.com/tims/datamake.git
-
 
 There's some irritating dependencies. Like oursql, which it used for hacky mysql artifacts.
 One day artifact types should be pluggable, because this sucks.
